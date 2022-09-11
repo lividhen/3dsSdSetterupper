@@ -10,3 +10,6 @@ Please open an issue and I will update my script to reflect it.
 
 ##### An app is out of date!
 If somebody knows how grab the latest version from github every time, please let me know. But for now just create an issue and I will update it in the script. You can also submit a pull request.
+
+####Linux or MacOS?
+I am working on a linux version, but I don't have access to a mac to make sure it will work on there too.
