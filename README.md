@@ -4,8 +4,8 @@ This is a small personal script I use to grab all the files needed for installin
 Just thought I'd share it since I have found it useful.
 
 
-
-###### Something on [3ds.hacks.guide](https://3ds.hacks.guide) got updated or changed!
+--------
+##### Something on [3ds.hacks.guide](https://3ds.hacks.guide) got updated or changed!
 Please open an issue and I will update my script to reflect it.
 
 ##### An app is out of date!
