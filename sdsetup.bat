@@ -53,7 +53,6 @@ curl -s https://api.github.com/repos/PabloMK7/homebrew_launcher_dummy/releases/l
 curl -s https://api.github.com/repos/Universal-Team/Universal-Updater/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Universal-Updater.cia -i -
 curl -s https://api.github.com/repos/Steveice10/FBI/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./FBI.3dsx -i -
 curl -s https://api.github.com/repos/Steveice10/FBI/releases/latest | jq -r ".assets[1] | .browser_download_url" | wget -qO ./FBI.cia -i -
-curl -LJO "https://github.com/d0k3/GodMode9/releases/download/v2.1.1/GodMode9-v2.1.1-20220322194259.zip"
 curl -s https://api.github.com/repos/d0k3/GodMode9/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./GodMode9.zip -i -
 
 echo Moving Shtuffs...
