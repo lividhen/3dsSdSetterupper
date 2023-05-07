@@ -6,13 +6,14 @@ set /p "id1=ID1: "
 echo Downloading SafeB9SInstaller 0.0.7, boot9strap 1.4, and luma 3ds 11.0... 
 echo.
 
-curl -LJO "https://github.com/d0k3/SafeB9SInstaller/releases/download/v0.0.7/SafeB9SInstaller-20170605-122940.zip"
-curl -LJO "https://github.com/SciresM/boot9strap/releases/download/1.4/boot9strap-1.4.zip"
-curl -LJO "https://github.com/LumaTeam/Luma3DS/releases/download/v11.0/Luma3DSv11.0.zip"
+curl -s https://api.github.com/repos/d0k3/SafeB9SInstaller/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./SafeB9SInstaller.zip -i -
+curl -s https://api.github.com/repos/SciresM/boot9strap/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./boot9strap.zip -i -
+curl -s https://api.github.com/repos/LumaTeam/Luma3DS/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Luma3DS.zip -i -
+curl -LJO https://github.com/zoogie/unSAFE_MODE/releases/download/v1.3/usm.bin
 
 cls
-echo Place your unSAFE_MODE.zip in the same directory as the script.
-echo You can get it here: https://3ds.nhnarwhal.com/3dstools/unsafemode.php
+echo Place your DSIWARE_EXPLOIT.zip in the same directory as the script.
+echo You can get it here: http://3dstools.nhnarwhal.com/#/bb3gen
 echo.
 
 pause
@@ -22,17 +23,17 @@ echo Extracting...
 set sd=FilesInHere
 mkdir %sd%
 
-tar -xf Luma3DSv11.0.zip -C %CD%\%sd%\
-del Luma3DSv11.0.zip
+tar -xf Luma3DS.zip -C %CD%\%sd%\
+del Luma3DS.zip
 
 mkdir %CD%\%sd%\boot9strap
-tar -xf boot9strap-1.4.zip -C %CD%\%sd%\boot9strap
-del boot9strap-1.4.zip
+tar -xf boot9strap.zip -C %CD%\%sd%\boot9strap
+del boot9strap.zip
 
-tar -xf SafeB9SInstaller-20170605-122940.zip -C %CD%\%sd% SafeB9SInstaller.bin
-del SafeB9SInstaller-20170605-122940.zip
+tar -xf SafeB9SInstaller.zip -C %CD%\%sd% SafeB9SInstaller.bin
+del SafeB9SInstaller.zip
 
-tar -xf unSAFE_MODE.zip
+tar -xf DSIWARE_EXPLOIT.zip
 mkdir "%sd%\Nintendo 3DS"
 mkdir "%sd%\Nintendo 3DS\%id0%"
 mkdir "%sd%\Nintendo 3DS\%id0%\%id1%"
@@ -46,13 +47,14 @@ echo.
 
 
 echo Downloading FBI (cia and 3dsx), Anemone, Checkpoint, Universal Updater, GodMode9, and the Homebrew Launcher Loader.
-curl -LJO "https://github.com/astronautlevel2/Anemone3DS/releases/download/v2.3.1/Anemone3DS.cia"
-curl -LJO "https://github.com/FlagBrew/Checkpoint/releases/download/v3.7.4/Checkpoint.cia"
-curl -LJO "https://github.com/PabloMK7/homebrew_launcher_dummy/releases/download/v1.0/Homebrew_Launcher.cia"
-curl -LJO "https://github.com/Universal-Team/Universal-Updater/releases/download/v3.2.5/Universal-Updater.cia"
-curl -LJO "https://github.com/Steveice10/FBI/releases/download/2.6.1/FBI.cia"
-curl -LJO "https://github.com/Steveice10/FBI/releases/download/2.6.1/FBI.3dsx"
+curl -s https://api.github.com/repos/astronautlevel2/Anemone3DS/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Anemone3DS.cia -i -
+curl -s https://api.github.com/repos/FlagBrew/Checkpoint/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Checkpoint.cia -i -
+curl -s https://api.github.com/repos/PabloMK7/homebrew_launcher_dummy/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Homebrew_Launcher.cia -i -
+curl -s https://api.github.com/repos/Universal-Team/Universal-Updater/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./Universal-Updater.cia -i -
+curl -s https://api.github.com/repos/Steveice10/FBI/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./FBI.3dsx -i -
+curl -s https://api.github.com/repos/Steveice10/FBI/releases/latest | jq -r ".assets[1] | .browser_download_url" | wget -qO ./FBI.cia -i -
 curl -LJO "https://github.com/d0k3/GodMode9/releases/download/v2.1.1/GodMode9-v2.1.1-20220322194259.zip"
+curl -s https://api.github.com/repos/d0k3/GodMode9/releases/latest | jq -r ".assets[0] | .browser_download_url" | wget -qO ./GodMode9.zip -i -
 
 echo Moving Shtuffs...
 echo.
@@ -65,8 +67,8 @@ move *.3ds  %CD%\%sd%\3ds\
 
 mkdir %CD%\%sd%\luma
 mkdir %CD%\%sd%\luma\payloads
-tar -xf GodMode9-v2.1.1-20220322194259.zip -C %CD%\%sd%\luma\payloads\ GodMode9.firm
-del GodMode9-v2.1.1-20220322194259.zip
+tar -xf GodMode9.zip -C %CD%\%sd%\luma\payloads\ GodMode9.firm
+del GodMode9.zip
 
 cls
 
